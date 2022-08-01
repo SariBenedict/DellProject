@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import scannersReducer from './slices/scannersSlice'
 
+
 export const store = configureStore({
   reducer: {
   /*
@@ -19,6 +20,7 @@ export const store = configureStore({
   scannersReducer:scannersReducer,
   },
 })
+
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
