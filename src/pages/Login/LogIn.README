@@ -1,0 +1,2 @@
+create a login page with username and password, on success,
+save token to localStorage and redirect to dashboard page
