@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import scannersReducer from './slices/scannersSlice'
-
+import  errorModalReducer  from "./slices/errorModalSlice";
+import Interceptor from '../api/ServiceBase.interceptor'
 
 export const store = configureStore({
   reducer: {
@@ -18,9 +19,10 @@ export const store = configureStore({
     basicly for every slice .
    */
   scannersReducer:scannersReducer,
+  errorModalReducer:errorModalReducer,
   },
 })
-
+Interceptor.interceptor(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
