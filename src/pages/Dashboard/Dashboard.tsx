@@ -5,16 +5,7 @@ import { getAllScanners } from '../../redux/thunks/scannersThunks';
 import useStyles from './Dashboard.styles'
 
 const Dashboard:React.FC = () => {
-const f=async()=>{
-  try{
-    const songs = await axios.get('http://localhost:8080/songs/byArtist');
-    console.log(songs);
-  }
-  catch(error){
-    console.log(error);
-  }
- 
-}
+
 
   const classes=useStyles();
   const dispatch = useAppDispatch();
@@ -27,7 +18,6 @@ const f=async()=>{
   return (
     <>
       <p className={classes.P} >Dashboard component here</p>
-      <button onClick={()=>{f()}}>click</button>
     </>
   )
 }

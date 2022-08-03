@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getAllScannersFromserver} from '../../api/getAllScanners'
+import { getAllScannersFromServer} from '../../api/getAllScanners'
 import { resiveScanners } from '../slices/scannersSlice'
 import { AppDispatch } from '../store'
 
@@ -7,7 +7,7 @@ export const getAllScanners = () => {
     return async (dispatch: AppDispatch) => {
         
         try {
-            const scanners = (await getAllScannersFromserver()).data
+            const scanners = (await getAllScannersFromServer()).data
             dispatch(resiveScanners(scanners))
         }
         catch (error) {
