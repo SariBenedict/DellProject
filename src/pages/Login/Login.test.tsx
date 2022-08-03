@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import Login from './Login';
 describe('Login component', () => {
-    test('renders "login component here" as a text', () => {
+    test('handle onclick', () => {
+        const onclick = jest.fn();
         render(<Login />);
-        const loginTextElement = screen.getByText('login component here')
-        expect(loginTextElement).toBeInTheDocument();
+        const handleSubmit = screen.getByText('login component here')
+        expect(onclick).toBeInTheDocument();
     });
-   
 })
 

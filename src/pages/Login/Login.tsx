@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { error } from 'console';
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { logInUser } from '../../api/logInUser';
 import useStyles from './Login.styles';
@@ -9,15 +9,12 @@ const Login:React.FC = () => {
     const classes=useStyles();
     const navigate = useNavigate();
   const [logIn, setLogIn] = useState<LogInDetails>({ username: "", password: "" })
-    const handleSubmit = async (e:any) => {
+    const handleSubmit = async (e:FormEvent) => {
       e.preventDefault();
      
         const response = await logInUser(logIn);
         localStorage.setItem("uuid", response.data);
         navigate("/");
-      
-  
-  
     }
   return (
     <div className="wrapper">

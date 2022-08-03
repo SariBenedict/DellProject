@@ -11,8 +11,7 @@ const Dashboard:React.FC = () => {
   const dispatch = useAppDispatch();
   const scanners: any[] = useAppSelector(state => state.scannersReducer.scanners);
   useEffect(() => {
-    //once you have a backend url in the env you can call this action 
-  //dispatch(getAllScanners());
+  
    
   }, []); 
   return (
