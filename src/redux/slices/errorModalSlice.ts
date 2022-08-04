@@ -20,9 +20,9 @@ export const errorModalSlice = createSlice({
             state.message = action.payload;
             state.showModal = true;
         },
-        closeModal: (state, action: PayloadAction<boolean>) => {
-            state.showModal = action.payload;
+        closeModal: (state) => {           
             state.message='';
+            state.showModal = false;
         }
     },
 })

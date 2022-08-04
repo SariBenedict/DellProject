@@ -5,45 +5,33 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { closeModal } from '../../redux/slices/errorModalSlice';
-
-
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
+import useStyles from './WarningModal.styles';
 
 export default function WarningModal() {
-    const [open, setOpen] = React.useState(false);
+    const [isOpen, setisOpen] = React.useState(false);
     const unexceptedError = useAppSelector(state => state.errorModalReducer);
     const dispatch = useAppDispatch();
-    const handleClose = () => { (dispatch(closeModal(false))) };
-
+    const handleClose = () => { (dispatch(closeModal())) };
+    const classes = useStyles();
     React.useEffect(() => {
-        setOpen(unexceptedError.showModal);
+        setisOpen(unexceptedError.showModal);
     }, [unexceptedError.showModal]);
 
     return (
         <div>
             <Modal
-                open={open}
+                open={isOpen}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box className={classes.Box}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         <b> Unexcepted Error</b>
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         {unexceptedError.message}
                     </Typography>
-                    <Button onClick={handleClose}>Close</Button>
+                    <Button color='error' onClick={handleClose}><b>Close</b></Button>
                 </Box>
             </Modal>
         </div>
