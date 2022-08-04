@@ -8,13 +8,13 @@ import { closeModal } from '../../redux/slices/errorModalSlice';
 import useStyles from './WarningModal.styles';
 
 export default function WarningModal() {
-    const [isOpen, setisOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
     const unexceptedError = useAppSelector(state => state.errorModalReducer);
     const dispatch = useAppDispatch();
     const handleClose = () => { (dispatch(closeModal())) };
     const classes = useStyles();
     React.useEffect(() => {
-        setisOpen(unexceptedError.showModal);
+        setIsOpen(unexceptedError.showModal);
     }, [unexceptedError.showModal]);
 
     return (
@@ -24,7 +24,7 @@ export default function WarningModal() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box className={classes.Box}>
+                <Box className={classes.box}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         <b> Unexcepted Error</b>
                     </Typography>

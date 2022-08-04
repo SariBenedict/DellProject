@@ -1,6 +1,6 @@
 import { makeStyles } from '@mui/styles'
 const useStyles = makeStyles({
-    Box: {
+    box: {
 
         position: 'absolute' as 'absolute',
         top: '50%',
